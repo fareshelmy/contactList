@@ -67,26 +67,8 @@ Contributor(s):
                 <a href="#edit" data-icon="gear" class="ui-btn ui-btn-inline ui-icon-plus ui-btn-icon-left">ADD</a>
             </div>
 
-            <ul data-role="listview" data-split-icon="gear" data-split-theme="a" data-inset="true" data-filter="true">
-                <li><a href="#details">
-                        <img src="../_assets/img/album-bb.jpg">
-                        <h2>Amr Saber</h2>
-                        <p>01117538430</p></a>
-                    <a href="#" class="ui-btn ui-btn-inline ui-icon-phone ui-btn-icon-right"></a>
-                </li>
-                <li><a href="#details">
-                        <img src="../_assets/img/album-hc.jpg">
-                        <h2>Zaki</h2>
-                        <p>56456466</p></a>
-                    <a href="#" class="ui-btn ui-btn-inline ui-icon-phone ui-btn-icon-right"></a>
-                </li>
-                <li><a href="#details">
-                        <img src="../_assets/img/album-p.jpg">
-                        <h2>Fares Helmy</h2>
-                        <p>21545454</p></a>
-                    <a href="#" class="ui-btn ui-btn-inline ui-icon-phone ui-btn-icon-right"></a>
-                </li>
-            </ul>
+            <ul id="contactList" class="ui-listview ui-listview-inset ui-corner-all ui-shadow" data-role="listview" data-split-icon="gear" data-split-theme="a" data-inset="true" data-filter="true"></ul>
+            <div data-role="footer"><h1>My Contacts</h1></div>
 
         </section>
 
@@ -96,14 +78,14 @@ Contributor(s):
                 <h1>Header</h1>
             </div> 
             <div id="contact_image" data-role="content">
-                <img src="css/images/male.jpg">
+                <img id="profileImage" src="css/images/male.jpg">
                 <div id="buttons">
                     <a id="deleteButton" href="#popupDialog" data-role="button" data-icon="delete" data-inline="true"></a>
                     <a id="editButton" href="#edit" data-transition="slidefade" data-role="button" data-icon="edit" data-inline="true"></a>
                     <a id="callButton" href="#" data-role="button" data-icon="phone" data-inline="true"></a>
                 </div>
             </div> 
-            <div data-role="footer"><h1>My Contacts</h1></div>
+            <div id="footer" data-role="footer"><h1>My Contacts</h1></div>
 
         </section>
 
@@ -113,7 +95,7 @@ Contributor(s):
             <div id="editProfile" data-role="content">
                 <div id="nameDiv">
                     <div>
-                        <form data-transition="slidefade">
+                        <form data-transition="slidefade" action="#home">
                             <div data-role="fieldcontain">
                                 <label for="name">Name</label>
                                 <input type="text" name="name" id="name">
@@ -132,8 +114,8 @@ Contributor(s):
                             <div data-role="fieldcontain">
                                 <label for="gender">Gender</label>
                                 <select name="gender" id="gender" data-role="slider">
-                                    <option value="off">Male</option>
-                                    <option value="on">Female</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
                                 </select> 
                             </div>
 
@@ -159,6 +141,8 @@ Contributor(s):
                         <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back" data-transition="flow">Delete</a>
                     </div>
         </section>
+        
+                <script src="js/contact.js"></script>
 
     </body>
 </html>
