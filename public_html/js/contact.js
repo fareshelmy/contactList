@@ -61,17 +61,22 @@ function addContactToView(contact) {
             <img src=" + genderPhoto + ">\n\
             <h2>" + contact.name + "</h2>\n\
             <p>" + contact.phone + "</p></a>\n\
-            <a href=\"#\" class=\"ui-btn ui-btn-inline ui-icon-phone ui-btn-icon-right\">\n\
+            <a  href=\"tel:" + contact.phone + "\" class=\"ui-btn ui-btn-inline ui-icon-phone ui-btn-icon-right phonenumber\">\n\
     </a>\n\
     </li>"
 
 
     $("#contactList").append(element);
+    
     $("#" + elementId).on('click', function (e) {
         e.preventDefault();
         fillDetails(contact, genderPhoto);
         currentcontact = contact;
         window.location = "#details";
+    });
+    $("a.phonenumber").click(function (e) {
+        e.stopPropagation();
+
     });
 
     elementId++;
@@ -79,6 +84,7 @@ function addContactToView(contact) {
 
 function fillDetails(contact, genderPhoto) {
     $("#profileImage").attr("src", genderPhoto);
+    $("#callButton").attr("href", "tel:" + contact.phone);
     $("#editButton").click(function () {
         fillEditDetails(contact);
     });
@@ -96,10 +102,10 @@ function getAllContacts() {
 
 function removeContact() {
 
-    var contacts = getToDoList();
+    var contacts = getAllContacts();
     var index;
     for (var i = 0; i < contacts.length; i++) {
-        if (currentcontact.name == contacts[i].name && currentcontact.phone == contacts[i].phone) {
+        if (currentcontact.name == contacts[i].name && currentcontact.phone == contacts[i].phone && currentcontact.gender == contacts[i].gender) {
             index = i;
             break;
         }
