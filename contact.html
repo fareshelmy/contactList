@@ -17,46 +17,49 @@
     </head>
 
     <body>
-        <div data-role="header">
-            <h1>Contact List</h1>
-            <a href="#add" data-icon="gear" class="ui-btn ui-btn-inline ui-icon-plus ui-btn-icon-left">ADD</a>
-        </div>
+        <section data-role="page">
+            <div data-role="header">
+                <h1>Contact List</h1>
+                <a href="#add" data-icon="gear" class="ui-btn ui-btn-inline ui-icon-plus ui-btn-icon-left">ADD</a>
+            </div>
 
-        <ul data-role="listview" data-split-icon="gear" data-split-theme="a" data-inset="true" data-filter="true">
-            <li><a href="#">
-                    <img src="../_assets/img/album-bb.jpg">
-                    <h2>Amr Saber</h2>
-                    <p>01117538430</p></a>
-                <a href="#" class="ui-btn ui-btn-inline ui-icon-phone ui-btn-icon-right"></a>
-            </li>
-            <li><a href="#">
-                    <img src="../_assets/img/album-hc.jpg">
-                    <h2>Zaki</h2>
-                    <p>56456466</p></a>
-                <a href="#" class="ui-btn ui-btn-inline ui-icon-phone ui-btn-icon-right"></a>
-            </li>
-            <li><a href="#">
-                    <img src="../_assets/img/album-p.jpg">
-                    <h2>Fares Helmy</h2>
-                    <p>21545454</p></a>
-                <a href="#" class="ui-btn ui-btn-inline ui-icon-phone ui-btn-icon-right"></a>
-            </li>
-        </ul>
+            <ul data-role="listview" data-split-icon="gear" data-split-theme="a" data-inset="true" data-filter="true">
+                <li><a href="#" >
+                        <img src="../_assets/img/album-bb.jpg">
+                        <h2>Amr Saber</h2>
+                        <p>01117538430</p></a>
+                    <a href="#" class="ui-btn ui-btn-inline ui-icon-phone ui-btn-icon-right"></a>
+                </li>
+                <li><a href="#">
+                        <img src="../_assets/img/album-hc.jpg">
+                        <h2>Zaki</h2>
+                        <p>56456466</p></a>
+                    <a href="#" class="ui-btn ui-btn-inline ui-icon-phone ui-btn-icon-right"></a>
+                </li>
+                <li><a href="#">
+                        <img src="../_assets/img/album-p.jpg">
+                        <h2>Fares Helmy</h2>
+                        <p>21545454</p></a>
+                    <a href="#" class="ui-btn ui-btn-inline ui-icon-phone ui-btn-icon-right"></a>
+                </li>
+            </ul>
 
-
+        </section>
         <!-- delete contact-->
-        
-        <div data-role="popup" id="popupDialog" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px;">
-                <div data-role="header" data-theme="a">
-                    <h1>Delete Contact </h1>
-                    </div>
-                <div role="main" class="ui-content">
-                        <h3 class="ui-title">Are you sure you want to delete this contact?</h3>
-                    <p>This action cannot be undone.</p>
-                        <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back">Cancel</a>
-                        <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back" data-transition="flow">Delete</a>
-                    </div>
-        </div>
+
+        <section data-role="page">
+            <div data-role="popup" id="popupDialog" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px;">
+                    <div data-role="header" data-theme="a">
+                        <h1>Delete Contact </h1>
+                        </div>
+                    <div role="main" class="ui-content">
+                            <h3 class="ui-title">Are you sure you want to delete this contact?</h3>
+                        <p>This action cannot be undone.</p>
+                            <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back">Cancel</a>
+                            <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back" data-transition="flow">Delete</a>
+                        </div>
+            </div>
+        </section>
 
     </body>
 </html>
