@@ -5,34 +5,59 @@ $("#delete").click(removeContact);
 
 var elementId = 1;
 var currentcontact = "";
-function Contact(name, phone, mail, gender) {
+var isEditContact = false;
+var editContact = "";
+var id = 0;
+function Contact(name, phone, mail, gender, id) {
     this.name = name;
     this.phone = phone;
     this.mail = mail;
     this.gender = gender;
+    this.id = id;
+
 }
 function getInfoFromScreen() {
     var name = document.getElementById("name").value;
     var phone = document.getElementById("phone").value;
     var mail = document.getElementById("mail").value;
     var gender = document.getElementById("gender").value;
-    var newContact = new Contact(name, phone, mail, gender);
-    return newContact;
+    if (isEditContact) {
+
+        var contacts = getAllContacts();
+        var index=contacts.findIndex(obj=>obj.id==editContact.id);
+       
+        contacts[index].name = name;
+        contacts[index].phone = phone;
+        contacts[index].gender = gender;
+        contacts[index].mail = mail;
+        
+        localStorage.setItem('contacts', JSON.stringify(contacts));
+        isEditContact = false;
+         window.location="#home";
+    } else {
+        var newContact = new Contact(name, phone, mail, gender, id);
+        id=id+1;
+        return newContact;
+    }
+
 }
 
 // save new contact in array
 function addContact() {
     var newContact = getInfoFromScreen();
-    var contacts;
-    if (window.localStorage.getItem("contacts") != null) {
-        contacts = JSON.parse(localStorage.getItem("contacts"));
-        contacts.push(newContact);
-        window.localStorage.setItem("contacts", JSON.stringify(contacts));
-    } else {
-        contacts = [];
-        contacts.push(newContact);
-        window.localStorage.setItem("contacts", JSON.stringify(contacts));
+    if (newContact != null) {
+        var contacts;
+        if (window.localStorage.getItem("contacts") != null) {
+            contacts = JSON.parse(localStorage.getItem("contacts"));
+            contacts.push(newContact);
+            window.localStorage.setItem("contacts", JSON.stringify(contacts));
+        } else {
+            contacts = [];
+            contacts.push(newContact);
+            window.localStorage.setItem("contacts", JSON.stringify(contacts));
+        }
     }
+    window.location="#home";
     refreshList();
     clearFields();
 }
@@ -67,7 +92,7 @@ function addContactToView(contact) {
 
 
     $("#contactList").append(element);
-    
+
     $("#" + elementId).on('click', function (e) {
         e.preventDefault();
         fillDetails(contact, genderPhoto);
@@ -121,8 +146,11 @@ function fillEditDetails(contact) {
     document.getElementById("phone").value = contact.phone;
     document.getElementById("mail").value = contact.mail;
     document.getElementById("gender").value = contact.gender;
+    isEditContact = true;
+    editContact = contact;
     window.location = "#edit";
 }
+
 
 function clearFields() {
     document.getElementById("name").value = "";
