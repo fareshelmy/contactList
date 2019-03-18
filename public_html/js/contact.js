@@ -1,7 +1,7 @@
 //Amr
 $("#saveButton").click(addContact);
 $(document).ready(refreshList);
-$("delete").click(removeContact);
+$("#delete").click(removeContact);
 
 var elementId = 1;
 var currentcontact = "";
