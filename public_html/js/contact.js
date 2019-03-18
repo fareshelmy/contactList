@@ -1,8 +1,10 @@
 //Amr
 $("#saveButton").click(addContact);
 $(document).ready(refreshList);
+$("delete").click(removeContact);
 
 var elementId = 1;
+var currentcontact = "";
 function Contact(name, phone, mail, gender) {
     this.name = name;
     this.phone = phone;
@@ -68,6 +70,7 @@ function addContactToView(contact) {
     $("#" + elementId).on('click', function (e) {
         e.preventDefault();
         fillDetails(contact, genderPhoto);
+        currentcontact = contact;
         window.location = "#details";
     });
 
@@ -80,6 +83,32 @@ function fillDetails(contact, genderPhoto) {
         fillEditDetails(contact);
     });
 }
+
+
+function getAllContacts() {
+    var contacts = new Array;
+    var todos_str = localStorage.getItem('contacts');
+    if (todos_str !== null) {
+        contacts = JSON.parse(todos_str); //convert string to java script object 
+    }
+    return contacts;
+}
+
+function removeContact() {
+
+    var contacts = getToDoList();
+    var index;
+    for (var i = 0; i < contacts.length; i++) {
+        if (currentcontact.name == contacts[i].name && currentcontact.phone == contacts[i].phone) {
+            index = i;
+            break;
+        }
+    }
+    contacts.splice(index, 1);
+    localStorage.setItem('contacts', JSON.stringify(contacts));
+    refreshList();
+}
+
 //Fares
 function fillEditDetails(contact) {
     document.getElementById("name").value = contact.name;
