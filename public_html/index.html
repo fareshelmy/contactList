@@ -43,7 +43,7 @@ Contributor(s):
         <meta name="viewport" content="width=device-width, initial-scale=1"> 
 
         <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
-        <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
         <script src="js/jquery.mobile-1.4.5.min.js"></script>
 
         <script type="text/javascript" src="js/loadWelcome.js"></script>
@@ -61,26 +61,59 @@ Contributor(s):
         <title>My Contacts</title>
     </head>
     <body>
-        <section data-role="page">
-            <div data-role="header">Header</div> 
-            <div id="contact_image" data-role="content">
-                <img src="css/images/male.jpg">
-                <div id="buttons">
-                    <a id="deleteButton" href="" data-role="button" data-icon="delete" data-inline="true"></a>
-                    <a id="editButton" href="#edit" data-role="button" data-icon="edit" data-inline="true"></a>
-                    <a id="callButton" href="" data-role="button" data-icon="phone" data-inline="true"></a>
-                </div>
-            </div> 
-            <div data-role="footer">Footer</div>
+        <section id="home" data-role="page">
+            <div data-role="header">
+                <h1>Contact List</h1>
+                <a href="#edit" data-icon="gear" class="ui-btn ui-btn-inline ui-icon-plus ui-btn-icon-left">ADD</a>
+            </div>
+
+            <ul data-role="listview" data-split-icon="gear" data-split-theme="a" data-inset="true" data-filter="true">
+                <li><a href="#details">
+                        <img src="../_assets/img/album-bb.jpg">
+                        <h2>Amr Saber</h2>
+                        <p>01117538430</p></a>
+                    <a href="#" class="ui-btn ui-btn-inline ui-icon-phone ui-btn-icon-right"></a>
+                </li>
+                <li><a href="#details">
+                        <img src="../_assets/img/album-hc.jpg">
+                        <h2>Zaki</h2>
+                        <p>56456466</p></a>
+                    <a href="#" class="ui-btn ui-btn-inline ui-icon-phone ui-btn-icon-right"></a>
+                </li>
+                <li><a href="#details">
+                        <img src="../_assets/img/album-p.jpg">
+                        <h2>Fares Helmy</h2>
+                        <p>21545454</p></a>
+                    <a href="#" class="ui-btn ui-btn-inline ui-icon-phone ui-btn-icon-right"></a>
+                </li>
+            </ul>
 
         </section>
 
-        <section id="edit" data-role="page" data-add-back-btn="true">
-            <div data-role="header">Header</div>
+        <section data-role="page" id="details">
+            <div id="detailsHeader" data-role="header">
+                <a data-rel="back" data-role="button" data-icon="back">Back</a>
+                <h1>Header</h1>
+            </div> 
+            <div id="contact_image" data-role="content">
+                <img src="css/images/male.jpg">
+                <div id="buttons">
+                    <a id="deleteButton" href="#popupDialog" data-role="button" data-icon="delete" data-inline="true"></a>
+                    <a id="editButton" href="#edit" data-transition="slidefade" data-role="button" data-icon="edit" data-inline="true"></a>
+                    <a id="callButton" href="#" data-role="button" data-icon="phone" data-inline="true"></a>
+                </div>
+            </div> 
+            <div data-role="footer"><h1>My Contacts</h1></div>
+
+        </section>
+
+        <section id="edit" data-role="page" data-add-back-btn="true" data-back-btn-text="Back">
+            <div data-role="header"><a data-rel="back" data-role="button" data-icon="back">Back</a>
+                <h1>Header</h1></div>
             <div id="editProfile" data-role="content">
                 <div id="nameDiv">
                     <div>
-                        <form action="#home">
+                        <form data-transition="slidefade">
                             <div data-role="fieldcontain">
                                 <label for="name">Name</label>
                                 <input type="text" name="name" id="name">
@@ -106,12 +139,26 @@ Contributor(s):
 
                             <div id="submitButtons">
                                 <input type="submit" id="saveButton" data-icon="check" value="Save" data-inline="true">
-                                <a id="cancelButton" href="#home" data-role="button" data-icon="forbidden" data-inline="true">Cancel</a>
+                                <a id="cancelButton" data-rel="back" href="#home" data-role="button" data-icon="forbidden" data-inline="true">Cancel</a>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
+            <div data-role="footer"><h1>My Contacts</h1></div>
         </section>
+
+        <section data-role="dialog" id="popupDialog" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px;">
+                <div data-role="header" data-theme="a">
+                    <h1>Delete Contact </h1>
+                    </div>
+                <div role="main" class="ui-content">
+                        <h3 class="ui-title">Are you sure you want to delete this contact?</h3>
+                    <p>This action cannot be undone.</p>
+                        <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back">Cancel</a>
+                        <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back" data-transition="flow">Delete</a>
+                    </div>
+        </section>
+
     </body>
 </html>
