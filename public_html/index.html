@@ -1,0 +1,117 @@
+<!--
+DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright (c) 2012, 2016 Oracle and/or its affiliates. All rights reserved.
+
+Oracle and Java are registered trademarks of Oracle and/or its affiliates.
+Other names may be trademarks of their respective owners.
+
+The contents of this file are subject to the terms of either the GNU
+General Public License Version 2 only ("GPL") or the Common
+Development and Distribution License("CDDL") (collectively, the
+"License"). You may not use this file except in compliance with the
+License. You can obtain a copy of the License at
+http://www.netbeans.org/cddl-gplv2.html
+or nbbuild/licenses/CDDL-GPL-2-CP. See the License for the
+specific language governing permissions and limitations under the
+License.  When distributing the software, include this License Header
+Notice in each file and include the License file at
+nbbuild/licenses/CDDL-GPL-2-CP.  Oracle designates this
+particular file as subject to the "Classpath" exception as provided
+by Oracle in the GPL Version 2 section of the License file that
+accompanied this code. If applicable, add the following below the
+License Header, with the fields enclosed by brackets [] replaced by
+your own identifying information:
+"Portions Copyrighted [year] [name of copyright owner]"
+
+If you wish your version of this file to be governed by only the CDDL
+or only the GPL Version 2, indicate your decision by adding
+"[Contributor] elects to include this software in this distribution
+under the [CDDL or GPL Version 2] license." If you do not indicate a
+single choice of license, a recipient has the option to distribute
+your version of this file under either the CDDL, the GPL Version 2 or
+to extend the choice of license to its licensees as provided above.
+However, if you add GPL Version 2 code and therefore, elected the GPL
+Version 2 license, then the option applies only if the new code is
+made subject to such option by the copyright holder.
+
+Contributor(s):
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+        <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+        <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+        <script src="js/jquery.mobile-1.4.5.min.js"></script>
+
+        <script type="text/javascript" src="js/loadWelcome.js"></script>
+
+        <link rel="stylesheet" href="css/style.css" type="text/css"/>
+
+
+
+
+        <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <title>My Contacts</title>
+    </head>
+    <body>
+        <section data-role="page">
+            <div data-role="header">Header</div> 
+            <div id="contact_image" data-role="content">
+                <img src="css/images/male.jpg">
+                <div id="buttons">
+                    <a id="deleteButton" href="" data-role="button" data-icon="delete" data-inline="true"></a>
+                    <a id="editButton" href="#edit" data-role="button" data-icon="edit" data-inline="true"></a>
+                    <a id="callButton" href="" data-role="button" data-icon="phone" data-inline="true"></a>
+                </div>
+            </div> 
+            <div data-role="footer">Footer</div>
+
+        </section>
+
+        <section id="edit" data-role="page" data-add-back-btn="true">
+            <div data-role="header">Header</div>
+            <div id="editProfile" data-role="content">
+                <div id="nameDiv">
+                    <div>
+                        <form action="#home">
+                            <div data-role="fieldcontain">
+                                <label for="name">Name</label>
+                                <input type="text" name="name" id="name">
+                            </div>
+
+                            <div data-role="fieldcontain">
+                                <label for="phone">Phone</label>
+                                <input type="tel" data-clear-btn="true" name="phone" id="phone" value="">
+                            </div>
+
+                            <div data-role="fieldcontain">
+                                <label for="mail">Email</label>
+                                <input type="email" name="mail" id="mail">
+                            </div>
+
+                            <div data-role="fieldcontain">
+                                <label for="gender">Gender</label>
+                                <select name="gender" id="gender" data-role="slider">
+                                    <option value="off">Male</option>
+                                    <option value="on">Female</option>
+                                </select> 
+                            </div>
+
+                            <div id="submitButtons">
+                                <input type="submit" id="saveButton" data-icon="check" value="Save" data-inline="true">
+                                <a id="cancelButton" href="#home" data-role="button" data-icon="forbidden" data-inline="true">Cancel</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>

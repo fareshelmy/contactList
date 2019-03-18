@@ -1,0 +1,52 @@
+<section data-role="page">
+            <div data-role="header">Header</div> 
+            <div id="contact_image" data-role="content">
+                <img src="css/images/male.jpg">
+                <div id="buttons">
+                    <a id="deleteButton" href="" data-role="button" data-icon="delete" data-inline="true"></a>
+                    <a id="editButton" href="#edit" data-role="button" data-icon="edit" data-inline="true"></a>
+                    <a id="callButton" href="" data-role="button" data-icon="phone" data-inline="true"></a>
+                </div>
+            </div> 
+            <div data-role="footer">Footer</div>
+
+        </section>
+
+        <section id="edit" data-role="page" data-add-back-btn="true">
+            <div data-role="header">Header</div>
+            <div id="editProfile" data-role="content">
+                <div id="nameDiv">
+                    <div>
+                        <form action="#home">
+                            <div data-role="fieldcontain">
+                                <label for="name">Name</label>
+                                <input type="text" name="name" id="name">
+                            </div>
+
+                            <div data-role="fieldcontain">
+                                <label for="phone">Phone</label>
+                                <input type="tel" data-clear-btn="true" name="phone" id="phone" value="">
+                            </div>
+
+                            <div data-role="fieldcontain">
+                                <label for="mail">Email</label>
+                                <input type="email" name="mail" id="mail">
+                            </div>
+
+                            <div data-role="fieldcontain">
+                                <label for="gender">Gender</label>
+                                <select name="gender" id="gender" data-role="slider">
+                                    <option value="off">Male</option>
+                                    <option value="on">Female</option>
+                                </select> 
+                            </div>
+
+                            <div id="submitButtons">
+                                <input type="submit" id="saveButton" data-icon="check" value="Save" data-inline="true">
+                                <a id="cancelButton" href="#home" data-role="button" data-icon="forbidden" data-inline="true">Cancel</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
