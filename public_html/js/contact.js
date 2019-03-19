@@ -1,5 +1,3 @@
-//Amr
-//$("#saveButton").click(addContact);
 $(document).ready(refreshList);
 $("#delete").click(removeContact);
 $("#addButton").click(clearFields);
@@ -8,7 +6,7 @@ var elementId = 1;
 var currentcontact = "";
 var isEditContact = false;
 var editContact = "";
-var id = 0;
+var id = 1;
 function Contact(name, phone, mail, gender, id) {
     this.name = name;
     this.phone = phone;
@@ -73,6 +71,7 @@ function refreshList() {
     for (var i in notes) {
         addContactToView(notes[i]);
     }
+    id = notes.length + 1;
 }
 
 function addContactToView(contact) {
@@ -98,8 +97,7 @@ function addContactToView(contact) {
         e.preventDefault();
         currentcontact = contact;
         window.location = "#details";
-        fillDetails(currentcontact, genderPhoto);
-        console.log(currentcontact);
+        fillDetails(contact, genderPhoto);
     });
     $("a.phonenumber").click(function (e) {
         e.stopPropagation();
@@ -143,7 +141,6 @@ function removeContact() {
     refreshList();
 }
 
-//Fares
 function fillEditDetails(contact) {
     document.getElementById("name").value = contact.name;
     document.getElementById("phone").value = contact.phone;
