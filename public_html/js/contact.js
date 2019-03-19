@@ -111,7 +111,7 @@ function addContactToView(contact) {
 function fillDetails(contact, genderPhoto) {
     $("#profileImage").attr("src", genderPhoto);
     $("#callButton").attr("href", "tel:" + contact.phone);
-    $("#detailsHeader").value = contact.name;
+    $("#detailsHead").text(contact.name);
     $("#editButton").click(function () {
         fillEditDetails(contact);
         console.log(contact);
