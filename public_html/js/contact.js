@@ -1,7 +1,8 @@
 //Amr
-$("#saveButton").click(addContact);
+//$("#saveButton").click(addContact);
 $(document).ready(refreshList);
 $("#delete").click(removeContact);
+$("#addButton").click(clearFields);
 
 var elementId = 1;
 var currentcontact = "";
@@ -24,19 +25,19 @@ function getInfoFromScreen() {
     if (isEditContact) {
 
         var contacts = getAllContacts();
-        var index=contacts.findIndex(obj=>obj.id==editContact.id);
-       
+        var index = contacts.findIndex(obj => obj.id == editContact.id);
+
         contacts[index].name = name;
         contacts[index].phone = phone;
         contacts[index].gender = gender;
         contacts[index].mail = mail;
-        
+
         localStorage.setItem('contacts', JSON.stringify(contacts));
         isEditContact = false;
-         window.location="#home";
+        window.location = "#home";
     } else {
         var newContact = new Contact(name, phone, mail, gender, id);
-        id=id+1;
+        id = id + 1;
         return newContact;
     }
 
@@ -57,9 +58,9 @@ function addContact() {
             window.localStorage.setItem("contacts", JSON.stringify(contacts));
         }
     }
-    window.location="#home";
     refreshList();
-    clearFields();
+    window.location = "#home";
+    location.reload(true);
 }
 
 function refreshList() {
@@ -95,13 +96,13 @@ function addContactToView(contact) {
 
     $("#" + elementId).on('click', function (e) {
         e.preventDefault();
-        fillDetails(contact, genderPhoto);
         currentcontact = contact;
         window.location = "#details";
+        fillDetails(currentcontact, genderPhoto);
+        console.log(currentcontact);
     });
     $("a.phonenumber").click(function (e) {
         e.stopPropagation();
-
     });
 
     elementId++;
@@ -112,6 +113,7 @@ function fillDetails(contact, genderPhoto) {
     $("#callButton").attr("href", "tel:" + contact.phone);
     $("#editButton").click(function () {
         fillEditDetails(contact);
+        console.log(contact);
     });
 }
 
