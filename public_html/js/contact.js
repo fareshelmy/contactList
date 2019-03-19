@@ -67,11 +67,11 @@ function refreshList() {
     while (divs.hasChildNodes()) {
         divs.removeChild(divs.firstChild);
     }
-    var notes = JSON.parse(localStorage.getItem("contacts"));
-    for (var i in notes) {
-        addContactToView(notes[i]);
+    var list = JSON.parse(localStorage.getItem("contacts"));
+    for (var i in list) {
+        addContactToView(list[i]);
     }
-    id = notes.length + 1;
+    id = list.length + 1;
 }
 
 function addContactToView(contact) {
